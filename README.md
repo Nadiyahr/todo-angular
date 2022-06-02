@@ -4,9 +4,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 [Task](https://docs.google.com/document/d/1lczZmSycryJHRTlT_0l8KzjPC_MS4GEFMYtOMbJ7kVQ/edit) description.
 
-[Demo](https://nadiyahr.github.io/to-do-angular-tt/)
+[Demo](https://nadiyahr.github.io/todo-angular/)
 
-ng deploy --base-href=to-do-angular-tt
+ng deploy --base-href=todo-angular
 
 ## Development server
 
