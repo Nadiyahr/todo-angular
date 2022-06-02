@@ -1,0 +1,109 @@
+<div class="app">
+  <div class="app__container">
+    <div class="app__tollbar">
+      <mat-toolbar color="primary">
+        <span class="app__title-big">{{ title }}</span>
+        <span class="app__title-small">ToDo</span>
+        <span class="fill"></span>
+        <div class="app__btn">
+          <button 
+            mat-flat-button 
+            color="primary"
+            (click)="drawer.toggle()"
+          >
+          <span class="app__btn--small">Add</span>
+           <span class="app__btn--media">to do</span>
+            <mat-icon>add_circle</mat-icon>
+          </button>
+        </div>
+        <div class="app__btn">
+          <button
+            mat-flat-button 
+            color="primary"
+            (click)="getAll()"
+          >
+            <span
+              [matBadge]="all"
+              matBadgeColor="accent"
+              matBadgeOverlap="false"
+            >
+              All <span class="app__btn--media">tasks</span>
+            </span>
+          </button>
+        </div>
+        <div class="app__btn">
+          <button 
+            mat-flat-button
+            color="primary"
+            (click)="filterByComplited(true)"
+          >
+              <span
+                [matBadge]="done"
+                matBadgeColor="accent"
+                matBadgeOverlap="false"
+              >
+              <span class="app__btn--media">Filter by</span> Done
+              </span>
+          </button>
+        </div>
+        <div class="app__btn">
+          <button 
+            mat-flat-button 
+            color="primary"
+            (click)="filterByComplited(false)"
+          >
+          <span
+            [matBadge]="undon"
+            matBadgeColor="accent"
+            matBadgeOverlap="false"
+          >
+          <span class="app__btn--media">Filter by</span> To Do
+          </span>
+          </button>
+        </div>
+      </mat-toolbar>
+    </div>
+    <mat-drawer-container class="app__sidenav">
+      <mat-drawer #drawer class="app__sidenav-drawer" mode="over">
+        <div class="app__sidenav-form">
+          <form>
+            <mat-form-field appearance="outline">
+              <mat-label>Add To Do</mat-label>
+              <input
+                matInput
+                placeholder="Add new task"
+                id="newTodo"
+                type="text"
+                [formControl]="newTodo"
+              >
+              <mat-error *ngIf="newTodo.invalid">{{errorMessage}}</mat-error>
+            </mat-form-field>
+            <button
+              mat-flat-button 
+              color="primary"
+              type="submit"
+              (click)="onSubmit($event)"
+            >
+              Add task to the list
+              <mat-icon>add_circle</mat-icon>
+            </button>
+          </form>
+          <div>
+          </div>
+        </div>
+      </mat-drawer>
+      <mat-drawer-content>
+        <div class="app__sidenav-main">
+          <app-card
+            class="app__sidenav-main-card"
+            *ngFor="let todo of todos"
+            [todo]="todo" 
+            [id]="todo.id"
+            (delete)="deletById(todo.id)"
+            (getChecked)="getChecked(todo.id, false)"
+          ></app-card>
+        </div>
+      </mat-drawer-content>
+    </mat-drawer-container>
+  </div>
+</div>

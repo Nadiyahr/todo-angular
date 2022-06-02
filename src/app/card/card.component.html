@@ -1,0 +1,65 @@
+<mat-card class="card">
+  <mat-card-header>
+    <mat-card-title>
+      <mat-checkbox class="example-margin" [(ngModel)]="checked" ></mat-checkbox>
+      <span>
+        <button *ngIf="todo?.completed"
+            mat-icon-button
+            color="primary"
+            matTooltip="Done"
+            matTooltipPosition="right"
+            matTooltipClass="tooltip-done"
+          >
+            <mat-icon>check_circle_outline</mat-icon>
+        </button>
+        <button *ngIf="!todo?.completed"
+          mat-icon-button
+          color="accent"
+          matTooltip="To do"
+          matTooltipPosition="right"
+          matTooltipClass="tooltip-todo"
+        >
+          <mat-icon>schedule</mat-icon>
+        </button>
+      </span>
+      <span class="card__title">{{ capitalizze(todo?.title) }}</span>
+    </mat-card-title>
+    
+    <span class="fill"></span>
+    <button *ngIf="confirm else not"
+      mat-icon-button
+      color="primary"
+      matTooltip="Do you want delete this task?"
+      matTooltipPosition="above"
+      matTooltipClass="tooltip-todo"
+      class="icon"
+      (click)="checkConfirm()"
+    >
+      <mat-icon>highlight_off</mat-icon>
+    </button>
+    <ng-template #not>
+      <button
+        mat-icon-button
+        color="warn"
+        matTooltip="Yes"
+        matTooltipPosition="above"
+        matTooltipClass="tooltip-red"
+        class="icon2"
+        (click)="deleteItem()"
+      >
+        <mat-icon>highlight_off</mat-icon>
+      </button>
+      <button
+        mat-icon-button
+        color="primary"
+        matTooltip="No"
+        matTooltipPosition="above"
+        matTooltipClass="tooltip-done"
+        class="icon2"
+        (click)="notDelete()"
+      >
+        <mat-icon>highlight_off</mat-icon>
+      </button>
+    </ng-template>
+  </mat-card-header>
+</mat-card>

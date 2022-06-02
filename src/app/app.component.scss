@@ -1,0 +1,113 @@
+.app {
+  display: flex;
+  justify-content: center;
+
+  &__container {
+    width: 60%;
+
+    @media (max-width: 1200px) {
+      width: 80%;
+    }
+
+    @media (max-width: 780px) {
+      width: 100%;
+    }
+  }
+
+  &__tollbar {
+    @media (max-width: 480px) {
+      padding: 0;
+    }
+  }
+
+  &__title {
+    &-big {
+        display: none;
+      }
+    }
+
+    &-small {
+      @media (min-width: 579px) {
+        display: none;
+      }
+    }
+
+  &__btn {
+    padding: 8px;
+
+    @media (max-width: 400px) {
+      padding: 4px;
+    }
+
+    &--media {
+      @media (max-width: 800px) {
+        display: none;
+      }
+    }
+
+    &--small {
+      @media (max-width: 400px) {
+        display: none;
+      }
+    }
+  }
+
+  &__sidenav {
+    width: 100%;
+    height: 100%;
+  
+    &-drawer {
+      width: 40%;
+      padding: 30px;
+
+      @media (max-width: 800px) {
+        width: 50%;
+      }
+
+      @media (max-width: 480px) {
+        width: 80%;
+      }
+    }
+
+    &-main {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding-top: 16px;
+
+      &-card {
+        width: 80%;
+      }
+    }
+  }
+}
+
+.fill {
+  flex: auto 1 1;
+}
+
+.tooltip-red {
+  font-size: medium;
+  background-color: #f44336;
+  color: #fff;
+}
+
+.tooltip-todo {
+  font-size: medium;
+  background-color: #ffd740;
+  color: #181817;
+}
+
+.tooltip-done {
+  font-size: medium;
+  background-color: #673ab7;
+  color: #fff;
+}
+
+.tooltip-white {
+  font-size: medium;
+  background-color: #fff;
+  color: #000;
+}
